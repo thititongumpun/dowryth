@@ -39,11 +39,6 @@ export default function Home() {
           src="female.png"
         />
       </Card>
-      <ResponsiveAdUnit
-        publisherId="pub-4998059744687395"
-        slotId="9429353830"
-        type="after-home-hero"
-      />
     </div>
   );
 }
