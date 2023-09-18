@@ -17,7 +17,7 @@ export default function Header({}: Props) {
     <Navbar position="static">
       <NavbarBrand>
         {/* <AcmeLogo /> */}
-        <p className="font-bold text-inherit">จ่ายเท่าไหร่</p>
+        <Link href="/" className="font-bold">จ่ายเท่าไหร่</Link>
       </NavbarBrand>
     </Navbar>
   );
