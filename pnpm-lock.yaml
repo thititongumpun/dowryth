@@ -10,6 +10,7 @@ specifiers:
   eslint-config-next: 13.4.19
   framer-motion: ^10.16.4
   next: 13.4.19
+  nextjs-google-adsense: ^1.0.0
   postcss: 8.4.29
   react: 18.2.0
   react-dom: 18.2.0
@@ -26,6 +27,7 @@ dependencies:
   eslint-config-next: 13.4.19_rngtr6f3b25lvetpihwplgecf4
   framer-motion: 10.16.4_biqbaboplfbrettd7655fr4n2y
   next: 13.4.19_biqbaboplfbrettd7655fr4n2y
+  nextjs-google-adsense: 1.0.0_next@13.4.19+react@18.2.0
   postcss: 8.4.29
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -3906,6 +3908,18 @@ packages:
     transitivePeerDependencies:
       - '@babel/core'
       - babel-plugin-macros
+    dev: false
+
+  /nextjs-google-adsense/1.0.0_next@13.4.19+react@18.2.0:
+    resolution: {integrity: sha512-gVqV9EH1JkDYT70M8AlqCTYq2DrmtJ8nL8xajXp+D5vK+U5PUwCJHi5XSuD9W0nFMBLYDWhVx452c8OcrI53/A==}
+    peerDependencies:
+      next: '>=11.0.0'
+      react: '>=17.0.0'
+    dependencies:
+      next: 13.4.19_biqbaboplfbrettd7655fr4n2y
+      react: 18.2.0
+    optionalDependencies:
+      fsevents: 2.3.3
     dev: false
 
   /node-releases/2.0.13:
