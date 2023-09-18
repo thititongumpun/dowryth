@@ -1,10 +1,7 @@
-"use client"
-
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Providers } from "./providers";
-import { GoogleAdSense } from "nextjs-google-adsense";
 import Script from "next/script";
 import Header from "./components/Header";
 
@@ -23,16 +20,15 @@ export default function RootLayout({
   return (
     <html lang="th" className="light">
       <body className={inter.className}>
-        <GoogleAdSense publisherId="pub-4998059744687395" />
         <Providers>
           <Header />
           <main className="flex justify-center items-center">{children}</main>
         </Providers>
-        {/* <Script
+        <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4998059744687395"
           crossOrigin="anonymous"
-        /> */}
+        />
       </body>
     </html>
   );
