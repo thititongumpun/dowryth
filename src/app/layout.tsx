@@ -8,8 +8,9 @@ import Header from "@/components/Header";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "จ่ายเท่าไหร่",
-  description: "คำนวนสินสอด",
+  title: "ผมต้องจ่ายสินสอดเท่าไหร่ครับบบบบ",
+  description: "ระบบคำนวนสินสอดสำหรับผู้ชาย",
+  keywords: ['สินสอด', 'ระบบคำนวนสินสอด', 'คำนวนสินสอด', 'ผมต้องจ่ายสินสอดเท่าไหร่ครับ'],
 };
 
 export default function RootLayout({

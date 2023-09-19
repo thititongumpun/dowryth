@@ -25,22 +25,15 @@ export default function Home() {
   return (
     <section className="mt-12 mx-auto px-4 max-w-screen-xl md:px-8">
       <h4 className="font-bold text-black text-2xl">คำนวนสินสอด</h4>
+      <p className="text-sm">คนจนมีสิทธิ์ไหมครับ</p>
       <main className="grid grid-cols-1 lg:grid-cols-2 mb-8 md:mb-8 gap-4 border border-gray-200 p-4 md:px-6">
         <GoogleAdSense publisherId="pub-4998059744687395" debug={true} />
         <div className="flex flex-col gap-8">
-          <ins
-            className="adsbygoogle"
-            style={{ display: "block" }}
-            data-ad-client="ca-pub-4998059744687395"
-            data-ad-slot="9429353830"
-            data-ad-format="auto"
-            data-full-width-responsive="true"
-          ></ins>
           <Card className="h-[300px]">
             <Image
               removeWrapper
               alt="Card background"
-              className="z-0 w-full h-full object-contain"
+              className="z-0 w-full h-full object-contain hover:scale-75 transition-all"
               src="male.png"
             />
             <CardFooter className="absolute bg-gray-200 bottom-0 border-t-1 border-zinc-100/50 z-10 justify-center">
@@ -53,6 +46,9 @@ export default function Home() {
             type="number"
             label="รายได้ต่อเดือน"
             labelPlacement="outside"
+            classNames={{
+              input: "text-blue-500 font-bold"
+            }}
             radius="lg"
             endContent={
               <div className="pointer-events-none flex items-center">
@@ -65,6 +61,9 @@ export default function Home() {
           <Input
             type="number"
             label="อายุงาน"
+            classNames={{
+              input: "text-blue-500 font-bold"
+            }}
             labelPlacement="outside"
             radius="lg"
             endContent={
@@ -108,19 +107,11 @@ export default function Home() {
           </Select>
         </div>
         <div className="flex flex-col gap-8">
-          <ins
-            className="adsbygoogle"
-            style={{ display: "block" }}
-            data-ad-client="ca-pub-4998059744687395"
-            data-ad-slot="9429353830"
-            data-ad-format="auto"
-            data-full-width-responsive="true"
-          ></ins>
           <Card className="h-[300px]">
             <Image
               removeWrapper
               alt="Card background"
-              className="z-0 w-full h-full object-contain"
+              className="z-0 w-full h-full object-contain hover:scale-75 transition-all"
               src="female.png"
             />
             <CardFooter className="absolute bg-gray-200 bottom-0 border-t-1 border-zinc-100/50 z-10 justify-center">
@@ -132,6 +123,9 @@ export default function Home() {
           <Input
             type="number"
             label="รายได้ต่อเดือน"
+            classNames={{
+              input: "text-blue-500 font-bold"
+            }}
             labelPlacement="outside"
             radius="lg"
             endContent={
@@ -145,6 +139,9 @@ export default function Home() {
           <Input
             type="number"
             label="อายุงาน"
+            classNames={{
+              input: "text-blue-500 font-bold"
+            }}
             labelPlacement="outside"
             radius="lg"
             endContent={
