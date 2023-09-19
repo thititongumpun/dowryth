@@ -23,7 +23,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Providers>
           <Header />
-          <main className="flex justify-center items-center">{children}</main>
+          <main className="flex justify-center items-center bg-gray-100">{children}</main>
         </Providers>
         {/* <Script
           async
