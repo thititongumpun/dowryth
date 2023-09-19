@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Providers } from "./providers";
 import Script from "next/script";
-import Header from "./components/Header";
+import Header from "@/components/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,12 +30,6 @@ export default function RootLayout({
           strategy="lazyOnload"
           crossOrigin="anonymous"
         /> */}
-        <Script
-          id="adsense"
-          dangerouslySetInnerHTML={{
-            __html: "(window.adsbygoogle = window.adsbygoogle || []).push({});",
-          }}
-        />
       </body>
     </html>
   );
