@@ -7,7 +7,7 @@ import { GoogleAdSense } from "nextjs-google-adsense";
 export default function Home() {
   return (
     <section className="mt-12 mx-auto px-4 max-w-screen-xl md:px-8">
-      <GoogleAdSense publisherId="pub-4998059744687395" />
+      <GoogleAdSense publisherId="pub-4998059744687395" debug={true} />
       <div className="mt-12 grid gap-2 sm:grid-cols-1 lg:grid-cols-2">
         <Card className="h-[300px]">
           <Image
