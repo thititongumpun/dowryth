@@ -65,7 +65,7 @@ export default function Home() {
               radius="lg"
               endContent={
                 <div className="pointer-events-none flex items-center">
-                  <span className="text-black text-small">บาท</span>
+                  <span className="text-blue-500 text-small">บาท</span>
                 </div>
               }
               defaultValue="35000"
@@ -81,7 +81,7 @@ export default function Home() {
               radius="lg"
               endContent={
                 <div className="pointer-events-none flex items-center">
-                  <span className="text-black text-small">ปี</span>
+                  <span className="text-blue-500 text-small">ปี</span>
                 </div>
               }
               defaultValue="5"
@@ -144,7 +144,7 @@ export default function Home() {
               radius="lg"
               endContent={
                 <div className="pointer-events-none flex items-center">
-                  <span className="text-black text-small">บาท</span>
+                  <span className="text-blue-500 text-small">บาท</span>
                 </div>
               }
               defaultValue="35000"
@@ -160,7 +160,7 @@ export default function Home() {
               radius="lg"
               endContent={
                 <div className="pointer-events-none flex items-center">
-                  <span className="text-black text-small">ปี</span>
+                  <span className="text-blue-500 text-small">ปี</span>
                 </div>
               }
               defaultValue="5"
