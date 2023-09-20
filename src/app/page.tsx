@@ -30,6 +30,7 @@ export default function Home() {
 
   async function onSubmit(formData: FormData) {
     const res = await submit(formData);
+    console.log(res);
     setDowry(res);
   }
 
