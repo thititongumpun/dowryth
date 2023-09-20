@@ -30,8 +30,9 @@ export default function Home() {
 
   async function onSubmit(formData: FormData) {
     const res = await submit(formData);
-    console.log(res);
-    setDowry(res);
+    if (res) {
+      setDowry(res);
+    }
   }
 
   return (
@@ -206,8 +207,8 @@ export default function Home() {
             <h1 className="font-bold text-gray-500">มูลค่าสินสอด</h1>
           </div>
           <div className="flex flex-col md:flex-row gap-4 md:gap-2 justify-evenly m-4 p-2 items-center">
-            <Button color="primary" size="lg" type="submit" isLoading={pending}>
-              คำนวณ
+            <Button color="primary" size="lg" type="submit" isLoading={pending} disabled={pending}>
+              {pending ? "คำนวณ..." : "คำนวณ"}
             </Button>
             <div className="flex p-2 justify-center items-center gap-2">
               <p className="text-gray-500 text-2xl">
