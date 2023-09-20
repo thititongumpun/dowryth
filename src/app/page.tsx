@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, {use} from "react";
 import { GoogleAdSense } from "nextjs-google-adsense";
 import {
   Card,
@@ -194,7 +194,7 @@ export default function Home() {
           <h1 className="font-bold text-gray-500">มูลค่าสินสอด</h1>
         </div>
         <div className="flex flex-col md:flex-row gap-4 md:gap-2 justify-evenly m-4 p-2 items-center">
-          <Button color="primary" size="lg" onClick={() => setDowry(555)}>
+          <Button color="primary" size="lg" onClick={() => setDowry(Math.floor(Math.random() * 10000000))}>
             คำนวณ
           </Button>
           <p className="text-gray-500 text-2xl">{dowry} บาท</p>
