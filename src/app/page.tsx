@@ -16,6 +16,7 @@ import {
 } from "@nextui-org/react";
 import { submit } from "./actions";
 import { experimental_useFormStatus as useFormStatus } from "react-dom";
+import { z } from "zod";
 
 const educations = [
   { label: "สูงกว่าปริญญาตรี", value: "สูงกว่าปริญญาตรี" },
@@ -24,15 +25,28 @@ const educations = [
   { label: "ต่ำกว่ามัธยม", value: "ต่ำกว่ามัธยม" },
 ];
 
+const schema = z.object({
+  maleDowry: z.string(),
+  femaleDowry: z.string(),
+});
+
 export default function Home() {
   const [dowry, setDowry] = React.useState({ dowry1: 0, dowry2: 0 });
   const { pending } = useFormStatus();
 
   async function onSubmit(formData: FormData) {
-    const res = await submit(formData);
-    if (res) {
-      setDowry(res);
-    }
+    // const res = await submit(formData);
+    const parsed = schema.parse({
+      maleDowry: formData.get("maleDowry"),
+      femaleDowry: formData.get("femaleDowry"),
+    });
+
+    const maleDowry1 =
+      (Number(parsed.maleDowry) + Number(parsed.maleDowry)) * 5;
+    const femaleDowry =
+      (Number(parsed.maleDowry) + Number(parsed.maleDowry)) * 10;
+
+    setDowry({ dowry1: maleDowry1, dowry2: femaleDowry });
   }
 
   return (
@@ -207,7 +221,13 @@ export default function Home() {
             <h1 className="font-bold text-gray-500">มูลค่าสินสอด</h1>
           </div>
           <div className="flex flex-col md:flex-row gap-4 md:gap-2 justify-evenly m-4 p-2 items-center">
-            <Button color="primary" size="lg" type="submit" isLoading={pending} disabled={pending}>
+            <Button
+              color="primary"
+              size="lg"
+              type="submit"
+              isLoading={pending}
+              disabled={pending}
+            >
               {pending ? "คำนวณ..." : "คำนวณ"}
             </Button>
             <div className="flex p-2 justify-center items-center gap-2">
