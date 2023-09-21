@@ -14,7 +14,6 @@ import {
   Image,
   Button,
 } from "@nextui-org/react";
-import { submit } from "./actions";
 import { experimental_useFormStatus as useFormStatus } from "react-dom";
 import { z } from "zod";
 
@@ -35,15 +34,14 @@ export default function Home() {
   const { pending } = useFormStatus();
 
   async function onSubmit(formData: FormData) {
-    // const res = await submit(formData);
     const parsed = schema.parse({
       maleDowry: formData.get("maleDowry"),
       femaleDowry: formData.get("femaleDowry"),
     });
 
-    const maleDowry1 =
+    let maleDowry1 =
       (Number(parsed.maleDowry) + Number(parsed.maleDowry)) * 5;
-    const femaleDowry =
+    let femaleDowry =
       (Number(parsed.maleDowry) + Number(parsed.maleDowry)) * 10;
 
     setDowry({ dowry1: maleDowry1, dowry2: femaleDowry });
