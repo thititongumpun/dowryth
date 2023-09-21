@@ -39,12 +39,13 @@ export default function Home() {
       femaleDowry: formData.get("femaleDowry"),
     });
 
-    let maleDowry1 =
-      (Number(parsed.maleDowry) + Number(parsed.maleDowry)) * 5;
+    let maleDowry =
+      (Number(parsed.maleDowry) + Number(parsed.femaleDowry)) * 5;
     let femaleDowry =
-      (Number(parsed.maleDowry) + Number(parsed.maleDowry)) * 10;
+      (Number(parsed.maleDowry) + Number(parsed.femaleDowry)) * 10;
+      
 
-    setDowry({ dowry1: maleDowry1, dowry2: femaleDowry });
+    setDowry({ dowry1: maleDowry, dowry2: femaleDowry });
   }
 
   return (
