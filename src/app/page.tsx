@@ -27,6 +27,7 @@ const educations = [
 const schema = z.object({
   maleDowry: z.string(),
   femaleDowry: z.string(),
+  isBkk: z.string(),
 });
 
 export default function Home() {
@@ -37,13 +38,13 @@ export default function Home() {
     const parsed = schema.parse({
       maleDowry: formData.get("maleDowry"),
       femaleDowry: formData.get("femaleDowry"),
+      isBkk: formData.get("isBkk"),
     });
 
-    let maleDowry =
-      (Number(parsed.maleDowry) + Number(parsed.femaleDowry)) * 5;
+    let maleDowry = (Number(parsed.maleDowry) + Number(parsed.femaleDowry)) * 5;
     let femaleDowry =
-      (Number(parsed.maleDowry) + Number(parsed.femaleDowry)) * 10;
-      
+      (Number(parsed.maleDowry) + Number(parsed.femaleDowry)) * 10 +
+      (parsed.isBkk === "กรุงเทพฯ" ? 174818.6 : 0);
 
     setDowry({ dowry1: maleDowry, dowry2: femaleDowry });
   }
@@ -111,7 +112,7 @@ export default function Home() {
               <Radio value="ปานกลาง">ปานกลาง</Radio>
               <Radio value="พอใช้">พอใช้</Radio>
             </RadioGroup>
-            <Divider />
+            {/* <Divider />
             <RadioGroup
               label="สถานที่อยู่อาศัย"
               color="primary"
@@ -132,7 +133,7 @@ export default function Home() {
               {(education) => (
                 <SelectItem key={education.value}>{education.label}</SelectItem>
               )}
-            </Select>
+            </Select> */}
           </div>
           <div className="flex flex-col gap-8">
             <Card className="h-[300px]">
@@ -195,6 +196,7 @@ export default function Home() {
               label="สถานที่อยู่อาศัย"
               color="primary"
               defaultValue="กรุงเทพฯ"
+              name="isBkk"
             >
               <Radio value="กรุงเทพฯ">กรุงเทพฯ</Radio>
               <Radio value="จังหวัดอื่นๆ">จังหวัดอื่นๆ</Radio>
