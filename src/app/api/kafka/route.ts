@@ -6,7 +6,7 @@ export async function POST(request: Request) {
   const req: Message = await request.json()
   const kafka = new Kafka({
     brokers: ['168.138.187.218:9092'],
-    clientId: 'test-client'
+    clientId: 'income-client'
   })
 
   const producer = kafka.producer({ createPartitioner: Partitioners.DefaultPartitioner })
