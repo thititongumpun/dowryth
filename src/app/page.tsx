@@ -38,13 +38,38 @@ export default function Home() {
     const parsed = schema.parse({
       maleDowry: formData.get("maleDowry"),
       femaleDowry: formData.get("femaleDowry"),
-      isBkk: formData.get("isBkk"),
+      isBkk: formData.get("isBkk") ?? "กรุงเทพฯ",
     });
 
     let maleDowry = (Number(parsed.maleDowry) + Number(parsed.femaleDowry)) * 5;
     let femaleDowry =
       (Number(parsed.maleDowry) + Number(parsed.femaleDowry)) * 10 +
       (parsed.isBkk === "กรุงเทพฯ" ? 174818.6 : 0);
+
+    const arr = [];
+    arr.push(
+      { gender: "Male", income: maleDowry },
+      { gender: "Female", income: femaleDowry }
+    );
+
+    const batchSize = 6;
+    let curReq = 0;
+    while (curReq < arr.length) {
+      const end =
+        arr.length < curReq + batchSize ? arr.length : curReq + batchSize;
+      const concurrentReq = new Array(batchSize);
+      for (let index = curReq; index < end; index++) {
+        concurrentReq.push(
+          fetch("/api/kafka", {
+            method: "POST",
+            body: JSON.stringify(arr[index]),
+          })
+        );
+        console.log(`sending request ${curReq}...`);
+        curReq++;
+      }
+      await Promise.all(concurrentReq);
+    }
 
     setDowry({ dowry1: maleDowry, dowry2: femaleDowry });
   }
