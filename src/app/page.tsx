@@ -46,6 +46,8 @@ export default function Home() {
       (Number(parsed.maleDowry) + Number(parsed.femaleDowry)) * 10 +
       (parsed.isBkk === "กรุงเทพฯ" ? 174818.6 : 0);
 
+    setDowry({ dowry1: maleDowry, dowry2: femaleDowry });
+
     const arr = [];
     arr.push(
       { gender: "Male", income: maleDowry },
@@ -70,8 +72,6 @@ export default function Home() {
       }
       await Promise.all(concurrentReq);
     }
-
-    setDowry({ dowry1: maleDowry, dowry2: femaleDowry });
   }
 
   return (
