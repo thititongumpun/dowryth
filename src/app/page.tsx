@@ -47,31 +47,6 @@ export default function Home() {
       (parsed.isBkk === "กรุงเทพฯ" ? 174818.6 : 0);
 
     setDowry({ dowry1: maleDowry, dowry2: femaleDowry });
-
-    const arr = [];
-    arr.push(
-      { gender: "Male", income: maleDowry },
-      { gender: "Female", income: femaleDowry }
-    );
-
-    const batchSize = 6;
-    let curReq = 0;
-    while (curReq < arr.length) {
-      const end =
-        arr.length < curReq + batchSize ? arr.length : curReq + batchSize;
-      const concurrentReq = new Array(batchSize);
-      for (let index = curReq; index < end; index++) {
-        concurrentReq.push(
-          fetch("/api/kafka", {
-            method: "POST",
-            body: JSON.stringify(arr[index]),
-          })
-        );
-        console.log(`sending request ${curReq}...`);
-        curReq++;
-      }
-      await Promise.all(concurrentReq);
-    }
   }
 
   return (
